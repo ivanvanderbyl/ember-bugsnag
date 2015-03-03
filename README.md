@@ -25,7 +25,11 @@ For all the available configuration options, see [Bugsnag.js Readme](https://git
 
 ## Usage
 
-Bugsnag is available within your controllers and routes, allowing you to customise the behaviour of Bugsnag and send custom notifications. For example, you might want to set the current user's details once they log in:
+Bugsnag is available within your controllers and routes, allowing you to customise the behaviour of Bugsnag and send custom notifications. 
+
+It also allows you to use Bugsnag's `user` and `metaData` attributes.
+
+**Example:**
 
 ```js
 // routes/application.js
