@@ -6,7 +6,7 @@ module.exports = {
   },
 
   afterInstall: function(options) {
-    return this.addBowerPackageToProject('bugsnag', '~2.4.7');
-    return this.addBowerPackageToProject('ember-cli-bugsnag-shim');
+    this.addBowerPackageToProject('bugsnag', '~2.4.7');
+    this.addBowerPackageToProject('ember-cli-bugsnag-shim');
   }
 };
