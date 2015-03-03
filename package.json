@@ -1,7 +1,7 @@
 {
   "name": "ember-bugsnag",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Adds the Bugsnag.js library to your Ember CLI app, and configures it to handle errors from Ember.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -35,7 +35,9 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "bugsnag",
+    "error"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
