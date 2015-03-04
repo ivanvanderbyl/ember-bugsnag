@@ -16,18 +16,22 @@ export function initialize(container, application) {
     Bugsnag[key] = config[key];
   });
 
+  var isReleaseStage = (Bugsnag.notifyReleaseStages || []).indexOf(Bugsnag.releaseStage || 'development');
+
   if (Bugsnag.apiKey) {
-    Ember.onerror = function (error) {
-      Bugsnag.notifyException(error);
-    };
+    if (isReleaseStage) {
+      Ember.onerror = function (error) {
+        Bugsnag.notifyException(error);
+      };
 
-    Ember.RSVP.on('error', function(error) {
-      Bugsnag.notifyException(error);
-    });
+      Ember.RSVP.on('error', function(error) {
+        Bugsnag.notifyException(error);
+      });
 
-    Ember.Logger.error = function (message, cause, stack) {
-      Bugsnag.notifyException(new Error(message), null, { cause: cause, stack: stack });
-    };
+      Ember.Logger.error = function (message, cause, stack) {
+        Bugsnag.notifyException(new Error(message), null, { cause: cause, stack: stack });
+      };
+    }
   }else{
     Ember.Logger.debug('[ember-bugsnag] Missing the apiKey configuration option');
   }
