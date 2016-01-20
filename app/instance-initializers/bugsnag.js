@@ -49,6 +49,8 @@ export function initialize(appInstance) {
       Bugsnag[key] = bugsnagConfig[key];
     });
 
+    Bugsnag.releaseStage = config.environment;
+
     registerEmberOnError(notifyFn);
     registerWindowOnError(notifyFn);
   }else{
