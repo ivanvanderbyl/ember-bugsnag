@@ -1,14 +1,21 @@
 # ember-bugsnag
 
-Adds the [Bugsnag.js](https://github.com/bugsnag/bugsnag-js) library to your Ember CLI app, and configures it to handle errors from Ember.
+Adds the [Bugsnag.js](https://github.com/bugsnag/bugsnag-js) library to your 
+Ember app, and configures it to handle errors from Ember and the browser.
 
 ## Installation
 
-* `ember install:addon ember-bugsnag`
+_Requires Ember 2.3+_
+
+```
+ember install ember-bugsnag
+```
 
 ## Configuration
 
-`ember-bugsnag` will look for configuration options in your app's environment under the `bugsnag` key. This means you can access any of the public API configuration options accepted by Bugsnag.js.
+`ember-bugsnag` will look for configuration options in your app's environment 
+under the `bugsnag` key. This means you can access any of the public API 
+configuration options accepted by Bugsnag.js.
 
 **Example:**
 ```js
@@ -19,13 +26,16 @@ Adds the [Bugsnag.js](https://github.com/bugsnag/bugsnag-js) library to your Emb
   };
 ```
 
-`ember-bugsnag` will automatically set `Bugsnag.releaseStage` to match the environment in which your app is running.
+`ember-bugsnag` will automatically set `Bugsnag.releaseStage` to match the 
+environment in which your app is running.
 
-For all the available configuration options, see [Bugsnag.js Readme](https://github.com/bugsnag/bugsnag-js/blob/master/README.md).
+For all the available configuration options, see 
+[Bugsnag.js Readme](https://github.com/bugsnag/bugsnag-js/blob/master/README.md).
 
 ## Usage
 
-Bugsnag is available within your controllers and routes, allowing you to customise the behaviour of Bugsnag and send custom notifications. 
+Bugsnag is available within your controllers and routes, allowing you to 
+customise the behaviour of Bugsnag and send custom notifications. 
 
 It also allows you to use Bugsnag's `user` and `metaData` attributes.
 
