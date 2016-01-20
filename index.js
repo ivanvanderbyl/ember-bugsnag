@@ -57,6 +57,8 @@ module.exports = {
     app.import(path.join('vendor', 'bugsnag/bugsnag.js'));
   },
 
+  isDevelopingAddon: function() { return true; },
+
   treeForVendor: function(tree) {
     var trees = [];
 

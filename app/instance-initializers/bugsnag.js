@@ -29,8 +29,6 @@ function registerWindowOnError(notifyFn) {
 }
 
 export function initialize(appInstance) {
-  // appInstance.registry.injection('route', 'foo', 'service:foo');
-
   appInstance.register('service:bugsnag', Bugsnag, {
     singleton: true,
     instantiate: false
@@ -45,17 +43,14 @@ export function initialize(appInstance) {
   };
 
   let bugsnagConfig = config.bugsnag || config.APP && config.APP.bugsnag;
-  if (bugsnagConfig) {
+
+  if (Ember.isPresent(bugsnagConfig)) {
     Object.keys(bugsnagConfig).forEach(function(key) {
       Bugsnag[key] = bugsnagConfig[key];
     });
 
-    let isReleaseStage = (Bugsnag.notifyReleaseStages || []).indexOf(Bugsnag.releaseStage || 'development');
-
-    if (!!bugsnagConfig && isReleaseStage) {
-      registerEmberOnError(notifyFn);
-      registerWindowOnError(notifyFn);
-    }
+    registerEmberOnError(notifyFn);
+    registerWindowOnError(notifyFn);
   }else{
     Ember.Logger.warn('[ember-bugsnag] bugsnag config missing.');
   }
