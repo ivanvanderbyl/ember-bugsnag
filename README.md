@@ -3,6 +3,8 @@
 Adds the [Bugsnag.js](https://github.com/bugsnag/bugsnag-js) library to your 
 Ember app, and configures it to handle errors from Ember and the browser.
 
+https://travis-ci.org/ivanvanderbyl/ember-bugsnag.svg?branch=master
+
 ## Installation
 
 _Requires Ember 2.3+_
