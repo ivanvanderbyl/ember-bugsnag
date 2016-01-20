@@ -1,5 +1,6 @@
 import Bugsnag from 'bugsnag';
 import ENV from '../config/environment';
+import Ember from 'ember';
 
 export function initialize(container, application) {
   application.register('bugsnag:main', Bugsnag, {
@@ -10,7 +11,7 @@ export function initialize(container, application) {
   application.inject('controller', 'bugsnag', 'bugsnag:main');
   application.inject('route', 'bugsnag', 'bugsnag:main');
 
-  var config = ENV['bugsnag'] || {};
+  var config = ENV['bugsnag'] || ENV.APP['bugsnag'] || {};
 
   Object.keys(config).forEach(function(key) {
     Bugsnag[key] = config[key];
@@ -33,7 +34,7 @@ export function initialize(container, application) {
       };
     }
   }else{
-    Ember.Logger.debug('[ember-bugsnag] Missing the apiKey configuration option');
+    Ember.Logger.warn('[ember-bugsnag] Missing the apiKey configuration option');
   }
 }
 
