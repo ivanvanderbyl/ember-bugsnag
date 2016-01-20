@@ -5,11 +5,11 @@ import {
 
 moduleFor('controller:application', {
   // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  // needs: ['service:bugsnag']
 });
 
-// test('it injects in to controllers', function(assert) {
-//   var controller = this.subject();
-
-//   assert.ok(!!controller.get('bugsnag'), 'bugsnag is in the controller');
-// });
+test('it injects in to controllers', function(assert) {
+  var controller = this.subject();
+  console.log(controller.get('bugsnag'));
+  assert.ok(!!controller.get('bugsnag'), 'bugsnag is in the controller');
+});
