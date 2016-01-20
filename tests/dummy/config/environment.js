@@ -21,7 +21,7 @@ module.exports = function(environment) {
 
   ENV['bugsnag'] = {
     apiKey: 'SUPER_SECRET',
-    autoNotify: false,
+    autoNotify: true,
     releaseStage: environment,
   };
 

@@ -17,8 +17,9 @@ module('Unit | Instance Initializer | bugsnag', {
 });
 
 // Replace this with your real tests.
-test('it works', function(assert) {
+test('it registers as a service', function(assert) {
   initialize(this.appInstance);
   let bugsnag = this.appInstance.lookup('service:bugsnag');
   assert.ok(bugsnag);
+  assert.equal(bugsnag.apiKey, 'SUPER_SECRET', 'it gets apiKey from config');
 });

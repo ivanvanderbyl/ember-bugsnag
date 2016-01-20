@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import config from '../config/environment';
 import Bugsnag from 'bugsnag';
-const { getOwner } = Ember;
 
 function registerEmberOnError(notifyFn) {
   let originalOnError = Ember.onerror || Ember.K;
@@ -41,8 +40,7 @@ export function initialize(appInstance) {
   appInstance.inject('route', 'bugsnag', 'service:bugsnag');
 
   let notifyFn = (error) => {
-    let bugsnag = getOwner(appInstance).lookup('service:bugsnag');
-    // let bugsnag = appInstance.lookup('service:bugsnag');
+    let bugsnag = appInstance.lookup('service:bugsnag');
     bugsnag.notifyException(error);
   };
 
