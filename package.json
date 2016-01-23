@@ -1,6 +1,6 @@
 {
   "name": "ember-bugsnag",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Adds the Bugsnag.js library to your Ember CLI app, and configures it to handle errors from Ember.",
   "directories": {
     "doc": "doc",
