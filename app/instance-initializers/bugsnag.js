@@ -29,14 +29,6 @@ function registerWindowOnError(notifyFn) {
 }
 
 export function initialize(appInstance) {
-  appInstance.register('service:bugsnag', Bugsnag, {
-    singleton: true,
-    instantiate: false
-  });
-
-  appInstance.inject('controller', 'bugsnag', 'service:bugsnag');
-  appInstance.inject('route', 'bugsnag', 'service:bugsnag');
-
   let notifyFn = (error) => {
     let bugsnag = appInstance.lookup('service:bugsnag');
     bugsnag.notifyException(error);
@@ -45,6 +37,14 @@ export function initialize(appInstance) {
   let bugsnagConfig = config.bugsnag || config.APP && config.APP.bugsnag;
 
   if (Ember.isPresent(bugsnagConfig)) {
+    appInstance.register('service:bugsnag', Bugsnag, {
+      singleton: true,
+      instantiate: false
+    });
+
+    appInstance.inject('controller', 'bugsnag', 'service:bugsnag');
+    appInstance.inject('route', 'bugsnag', 'service:bugsnag');
+
     Object.keys(bugsnagConfig).forEach(function(key) {
       Bugsnag[key] = bugsnagConfig[key];
     });
